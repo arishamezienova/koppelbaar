@@ -1,4 +1,8 @@
-export default function Footer() {
+type FooterProps = {
+    locale: "nl" | "en";
+};
+
+export default function Cases({ locale }: FooterProps) {
     return (
         <footer className="border-t py-16 px-6">
             <div className="max-w-4xl mx-auto text-center">

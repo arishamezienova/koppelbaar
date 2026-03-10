@@ -1,4 +1,8 @@
-export default function Cases() {
+type CasesProps = {
+    locale: "nl" | "en";
+};
+
+export default function Cases({ locale }: CasesProps) {
     return (
         <section className="py-20 px-6 bg-gray-50">
             <div className="max-w-6xl mx-auto">

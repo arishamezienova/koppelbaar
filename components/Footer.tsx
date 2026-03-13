@@ -144,11 +144,12 @@ export default function Footer({ locale }: FooterProps) {
                         className="grid grid-cols-2 gap-4"
                     >
 
-                        <input type="hidden" name="_captcha" value="false" />
-                        <input type="text" name="_honey" style={{ display: "none" }} />
-                        <input type="hidden" name="_subject" value="Nieuwe aanvraag via koppelbaar.agency" />
-                        <input type="hidden" name="_template" value="table" />
-                        <input type="hidden" name="_next" value={`https://koppelbaar.agency/${locale}/thanks`} />
+                        <input type="hidden" name="_captcha" value="false"/>
+                        <input type="text" name="_honey" style={{display: "none"}}/>
+                        <input type="hidden" name="_subject" value="Nieuwe aanvraag via koppelbaar.agency"/>
+                        <input type="hidden" name="_template" value="table"/>
+                        <input type="hidden" name="_next" value={`https://koppelbaar.agency/${locale}/thanks`}/>
+                        <input type="hidden" name="_captcha" value="false"/>
                         <input
                             type="hidden"
                             name="_autoresponse"
@@ -207,6 +208,11 @@ export default function Footer({ locale }: FooterProps) {
                             className="col-span-2 bg-black border border-gray-700 rounded-lg px-4 py-3"
                         />
 
+                        <div
+                            className="cf-turnstile col-span-2"
+                            data-sitekey="0x4AAAAAACqHxsri0XZmpKVW"
+                            data-theme="dark"
+                        ></div>
                         <button
                             type="submit"
                             className="col-span-2 bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition"

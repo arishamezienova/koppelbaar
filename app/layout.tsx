@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
+import Script from "next/script";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -22,6 +23,12 @@ export default function RootLayout({
         <html lang="nl">
         <body className={`${poppins.className} antialiased bg-white text-black`}>
         {children}
+
+
+        <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            strategy="afterInteractive"
+        />
         <CookieBanner />
         </body>
         </html>

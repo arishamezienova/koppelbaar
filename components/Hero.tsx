@@ -13,7 +13,7 @@ export default function Hero({ locale }: HeroProps) {
     return (
         <section
             className="relative w-full min-h-[90vh] md:min-h-screen flex items-center bg-cover bg-center"
-            style={{ backgroundImage: "url('/bg.jpeg')" }}
+            style={{ backgroundImage: "url('/bg.webp')" }}
         >
             {/* overlay */}
             <div className="absolute inset-0 bg-black/50"></div>

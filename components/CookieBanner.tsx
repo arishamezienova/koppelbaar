@@ -42,7 +42,7 @@ export default function CookieBanner() {
 
                     en: {
                         consentModal: {
-                            title: `<img src="/cookie.png" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Your privacy matters`,
+                            title: `<img src="/cookie.webp" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Your privacy matters`,
                             description:
                                 "We use cookies to enhance your experience, analyse traffic, and serve personalised content. 'Accept all' to consent per our Cookie and Privacy policies.",
                             acceptAllBtn: "Accept all",
@@ -74,7 +74,7 @@ export default function CookieBanner() {
 
                     nl: {
                         consentModal: {
-                            title: `<img src="/cookie.png" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Uw privacy is belangrijk`,
+                            title: `<img src="/cookie.webp" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Uw privacy is belangrijk`,
                             description:
                                 "Wij gebruiken cookies om uw ervaring te verbeteren, verkeer te analyseren en gepersonaliseerde content te tonen. Klik op 'Alles accepteren' om toestemming te geven volgens ons Cookie- en Privacybeleid.",
                             acceptAllBtn: "Alles accepteren",

@@ -22,14 +22,24 @@ export default function RootLayout({
     return (
         <html lang="nl">
         <body className={`${poppins.className} antialiased bg-white text-black`}>
+
         {children}
 
+        {/* Cookie banner */}
+        <CookieBanner />
 
+        {/* Cloudflare Turnstile */}
         <Script
             src="https://challenges.cloudflare.com/turnstile/v0/api.js"
             strategy="afterInteractive"
         />
-        <CookieBanner />
+
+        {/* Contentsquare / Hotjar */}
+        <Script
+            src="https://t.contentsquare.net/uxa/c793f7ae91402.js"
+            strategy="afterInteractive"
+        />
+
         </body>
         </html>
     );

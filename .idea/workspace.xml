@@ -3,26 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="924e1380-7250-43d6-bc7e-c00557097b8d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CookieBanner.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/CookieBanner.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/cases.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/cases.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/bg.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/bergheuvel-web.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/bergheuvel1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/bijzaak-vzw-tablet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/bijzaak-vzw-web.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/bookingsplatform-mobile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/bookingsplatform-tablet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/bookingsplatform.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/emprecords-mobile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/emprecords.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/tickets-bijzaak-tablet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/tickets-bijzaak1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/yolean-mobile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cases/yolean.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cookie.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Hotjar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hotjar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +89,7 @@
       <workItem from="1773216291680" duration="28885000" />
       <workItem from="1773337494054" duration="3478000" />
       <workItem from="1773343049872" duration="565000" />
-      <workItem from="1773392729172" duration="6499000" />
+      <workItem from="1773392729172" duration="8244000" />
     </task>
     <servers />
   </component>

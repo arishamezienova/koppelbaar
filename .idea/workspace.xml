@@ -2,38 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="924e1380-7250-43d6-bc7e-c00557097b8d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/[locale]/cases/[slug]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/[locale]/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/[locale]/privacy/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/[locale]/thanks/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/CaseContent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/FadeIn.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/MDXContent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/en/afsprakenplatform-natalyahaarmode.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/en/bergheuvel.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/en/bijzaak.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/en/emprecords.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/en/tickets-bijzaak.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/en/yolean.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/nl/afsprakenplatform-natalyahaarmode.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/nl/bergheuvel.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/nl/bijzaak.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/nl/emprecords.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/nl/tickets-bijzaak.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/cases/nl/yolean.mdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/cases.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/CookieBanner.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/app/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[locale]/privacy/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/privacy/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Cases.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Cases.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/languages/en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/languages/nl.json" beforeDir="false" afterPath="$PROJECT_DIR$/languages/nl.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Hotjar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hotjar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -121,6 +95,7 @@
       <workItem from="1773216291680" duration="28885000" />
       <workItem from="1773337494054" duration="3478000" />
       <workItem from="1773343049872" duration="565000" />
+      <workItem from="1773392729172" duration="4051000" />
     </task>
     <servers />
   </component>

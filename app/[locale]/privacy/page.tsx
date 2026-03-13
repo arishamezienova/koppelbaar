@@ -20,6 +20,12 @@ export default async function PrivacyPage({ params }: Props) {
                     {isEN ? "Privacy Policy" : "Privacybeleid"}
                 </h1>
 
+                <p className="text-sm text-gray-500 mb-10">
+                    {isEN
+                        ? "Last updated: March 2026"
+                        : "Laatst bijgewerkt: maart 2026"}
+                </p>
+
                 <div className="prose prose-lg max-w-none">
 
                     <h2>{isEN ? "1. Introduction" : "1. Inleiding"}</h2>
@@ -64,16 +70,34 @@ export default async function PrivacyPage({ params }: Props) {
 
                     <p>
                         {isEN
-                            ? "We do not share your personal data with third parties unless necessary for technical services such as website hosting."
-                            : "Wij delen uw gegevens niet met derden, tenzij dit noodzakelijk is voor technische diensten zoals hosting van de website."}
+                            ? "We may use third-party services necessary for the operation of the website, such as hosting and form processing services."
+                            : "Wij kunnen gebruikmaken van externe diensten die noodzakelijk zijn voor de werking van de website, zoals hosting en formulierverwerking."}
                     </p>
-
-                    <h2>{isEN ? "6. Your rights" : "6. Uw rechten"}</h2>
 
                     <p>
                         {isEN
-                            ? "You have the right to request access, correction, or deletion of your personal data."
-                            : "U heeft het recht om uw persoonsgegevens in te zien, te laten corrigeren of te laten verwijderen."}
+                            ? "Our contact form is processed using FormSubmit, a service that securely forwards form submissions to our email inbox."
+                            : "Ons contactformulier wordt verwerkt via FormSubmit, een dienst die formulierinzendingen veilig naar onze mailbox doorstuurt."}
+                    </p>
+
+                    <h2>{isEN ? "6. Cookies and analytics" : "6. Cookies en analytics"}</h2>
+
+                    <p>
+                        {isEN
+                            ? "Our website uses cookies and analytics tools to understand how visitors interact with the site and to improve the user experience."
+                            : "Onze website maakt gebruik van cookies en analysetools om te begrijpen hoe bezoekers de website gebruiken en om de gebruikerservaring te verbeteren."}
+                    </p>
+
+                    <p>
+                        {isEN
+                            ? "We use Hotjar to analyse anonymous user behaviour such as clicks, scrolling behaviour and navigation on the website. These insights help us optimise the website."
+                            : "Wij gebruiken Hotjar om anoniem gebruikersgedrag te analyseren, zoals klikken, scrollgedrag en navigatie op de website. Deze inzichten helpen ons om de website te verbeteren."}
+                    </p>
+
+                    <p>
+                        {isEN
+                            ? "Hotjar is only activated after you provide consent via the cookie banner."
+                            : "Hotjar wordt alleen geactiveerd nadat u toestemming heeft gegeven via de cookiebanner."}
                     </p>
 
                     <h2>{isEN ? "7. Contact" : "7. Contact"}</h2>

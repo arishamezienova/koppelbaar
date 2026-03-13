@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { Globe } from "lucide-react";
+import Link from "next/link";
 
 type HeaderProps = {
     locale: "nl" | "en";
-    setLocale: (locale: "nl" | "en") => void;
 };
 
-export default function Header({ locale, setLocale }: HeaderProps) {
+export default function Header({ locale }: HeaderProps) {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -20,6 +20,9 @@ export default function Header({ locale, setLocale }: HeaderProps) {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const textColor = scrolled ? "text-white" : "text-black";
+    const borderColor = scrolled ? "border-white/40" : "border-black/40";
+
     return (
         <header
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
@@ -27,31 +30,42 @@ export default function Header({ locale, setLocale }: HeaderProps) {
         >
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-                <div className={`text-xl font-bold ${scrolled ? "text-white" : "text-black"}`}>
+                <Link
+                    href={`/${locale}`}
+                    className={`text-xl font-bold ${textColor} hover:opacity-80 transition`}
+                >
                     koppelbaar<span className="text-purple-600">.</span>
-                </div>
+                </Link>
 
                 <div className="flex items-center gap-2">
 
-                    <Globe className={`w-4 h-4 ${scrolled ? "text-white" : "text-black"}`} />
+                    <Globe className={`w-4 h-4 ${textColor}`} />
 
-                    <div className="flex border border-white/40 rounded-full p-[2px] text-xs">
+                    <div className={`flex border ${borderColor} rounded-full p-0.5 text-xs`}>
 
-                        <button
-                            onClick={() => setLocale("nl")}
-                            className={`px-2 py-[2px] rounded-full transition
-              ${locale === "nl" ? "bg-white text-black" : "text-white/70 hover:text-white"}`}
+                        <Link
+                            href="/nl" scroll={false}
+                            className={`px-2 py-0.5 rounded-full transition
+              ${
+                                locale === "nl"
+                                    ? "bg-white text-black"
+                                    : `${textColor} opacity-70 hover:opacity-100`
+                            }`}
                         >
                             NL
-                        </button>
+                        </Link>
 
-                        <button
-                            onClick={() => setLocale("en")}
-                            className={`px-2 py-[2px] rounded-full transition
-              ${locale === "en" ? "bg-white text-black" : "text-white/70 hover:text-white"}`}
+                        <Link
+                            href="/en" scroll={false}
+                            className={`px-2 py-0.5 rounded-full transition
+              ${
+                                locale === "en"
+                                    ? "bg-white text-black"
+                                    : `${textColor} opacity-70 hover:opacity-100`
+                            }`}
                         >
                             EN
-                        </button>
+                        </Link>
 
                     </div>
 

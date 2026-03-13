@@ -8,53 +8,62 @@ type HeroProps = {
 };
 
 export default function Hero({ locale }: HeroProps) {
-
     const t = locale === "en" ? en.hero : nl.hero;
 
     return (
         <section
-            className="relative w-full min-h-screen flex items-center bg-cover bg-center"
+            className="relative w-full min-h-[90vh] md:min-h-screen flex items-center bg-cover bg-center"
             style={{ backgroundImage: "url('/bg.jpeg')" }}
         >
             {/* overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-black/50"></div>
 
-            <div className="relative max-w-6xl mx-auto w-full px-6 grid md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
+            <div className="relative max-w-6xl mx-auto w-full px-6 py-24 md:py-0">
 
-                <div className="text-left text-white">
+                <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
 
-                    <h1 className="mb-6 text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] max-w-2xl tracking-tight">
-                        {t.line1}
-                        <br />
-                        {t.line2}
-                        <br />
-                        {t.line3}
-                        <span className="text-purple-500">.</span>
-                    </h1>
+                    {/* TEXT */}
+                    <div className="text-white">
 
-                    <p className="mt-6 max-w-md text-gray-200">
-                        {t.description}
-                    </p>
+                        <h1
+                            className={`font-bold tracking-tight leading-[1.05] mb-6 ${
+                                locale === "en"
+                                    ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+                                    : "text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+                            }`}
+                        >
+                            {t.line1}
+                            <br />
+                            {t.line2}
+                            <br />
+                            {t.line3}
+                            <span className="text-purple-500">.</span>
+                        </h1>
 
-                    <button className="mt-6 group relative flex items-center gap-2 pr-4 pl-1 py-1 rounded-full border-2 border-white overflow-hidden">
+                        <p className="max-w-md text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed">
+                            {t.description}
+                        </p>
 
-                        <span className="absolute inset-0 bg-purple-600 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+                        <a
+                            href="#contact"
+                            className="mt-8 inline-flex group relative items-center gap-2 pr-4 pl-1 py-1 rounded-full border-2 border-white overflow-hidden"
+                        >
+                            <span className="absolute inset-0 bg-purple-600 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
 
-                        <span className="relative flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white">
-              <span className="transform transition-transform duration-300 group-hover:translate-x-1">
-                →
+                            <span className="relative flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white">
+                <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
               </span>
-            </span>
 
-                        <span className="relative font-medium text-white text-sm">
-              {t.cta}
-            </span>
+                            <span className="relative font-medium text-white text-sm">
+                {t.cta}
+              </span>
+                        </a>
 
-                    </button>
+                    </div>
 
                 </div>
-
-                <div></div>
 
             </div>
         </section>

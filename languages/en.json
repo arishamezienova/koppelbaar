@@ -1,13 +1,75 @@
 {
   "hero": {
     "line1": "We build",
-    "line2": "websites that",
-    "line3": "move you forward",
-    "description": "Need a new website or want to upgrade your current one? We design and develop modern, custom websites for businesses that want to grow.",
-    "cta": "Work together?"
+    "line2": "websites that move",
+    "line3": "your business forward",
+    "description": "Need a new website or want to upgrade your current one? We design and develop modern, custom websites for companies that want to grow.",
+    "cta": "Start a project?"
   },
+
   "cases": {
-    "title": "Projects",
-    "project1": "Modern website for a startup"
+    "title": "Cases",
+    "cta": "View project →",
+    "viewLive": "View live website",
+
+    "items": {
+      "yolean": {
+        "title": "Startup website",
+        "description": "Modern website for a beauty salon."
+      },
+
+      "emprecords": {
+        "title": "Vinyl record webshop",
+        "description": "E-commerce platform for selling vinyl records."
+      },
+
+      "tickets-bijzaak": {
+        "title": "Booking platform with payments",
+        "description": "Event booking platform with dashboard and integrated payment system."
+      },
+
+      "bijzaak": {
+        "title": "Entertainment website",
+        "description": "Website showcasing upcoming events."
+      },
+
+      "afsprakenplatform-natalyahaarmode": {
+        "title": "Appointment booking platform",
+        "description": "Online appointment booking system with management dashboard."
+      },
+
+      "bergheuvel": {
+        "title": "Corporate website",
+        "description": "Website for a Dutch construction company."
+      }
+    }
+  },
+  "footer": {
+    "quote1": "Systems that connect.",
+    "quote2": "Software that works.",
+    "title": "Ready for a proposal?",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "interest": "What are you interested in?",
+    "send": "Send request",
+    "privacy": "Privacy Policy",
+    "phone": "Phone",
+    "profile": "Profiles",
+
+    "options": [
+      "Website",
+      "Web app",
+      "Platform",
+      "Integrations",
+      "API integration",
+      "Consulting"
+    ]
+  },
+  "thanks": {
+    "title": "Thank you for your request",
+    "description": "We will get back to you as soon as possible.",
+    "reply": "We usually reply within 24 hours.",
+    "back": "Back to homepage"
   }
 }

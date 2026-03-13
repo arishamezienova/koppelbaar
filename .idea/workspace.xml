@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="924e1380-7250-43d6-bc7e-c00557097b8d" name="Changes" comment="" />
+    <list default="true" id="924e1380-7250-43d6-bc7e-c00557097b8d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/[locale]/cases/[slug]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/[locale]/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/[locale]/privacy/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/[locale]/thanks/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/CaseContent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/FadeIn.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/MDXContent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/en/afsprakenplatform-natalyahaarmode.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/en/bergheuvel.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/en/bijzaak.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/en/emprecords.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/en/tickets-bijzaak.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/en/yolean.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/nl/afsprakenplatform-natalyahaarmode.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/nl/bergheuvel.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/nl/bijzaak.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/nl/emprecords.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/nl/tickets-bijzaak.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/cases/nl/yolean.mdx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cases.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/app/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[locale]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Cases.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Cases.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/languages/en.json" beforeDir="false" afterPath="$PROJECT_DIR$/languages/en.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/languages/nl.json" beforeDir="false" afterPath="$PROJECT_DIR$/languages/nl.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,25 +49,56 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.5.2/bin/php" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="3AjAiTSd9DCPeikckmXcwL1238L" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "main",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/arishamezienova/koppelbaar/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/[locale]/thanks" />
+      <recent name="$PROJECT_DIR$/app/[locale]/thanks/nl" />
+      <recent name="$PROJECT_DIR$/content/cases/nl" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/[locale]/cases/[slug]" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -49,10 +115,27 @@
       <option name="presentableId" value="Default" />
       <updated>1773095732512</updated>
       <workItem from="1773095733513" duration="259000" />
+      <workItem from="1773095995042" duration="8444000" />
+      <workItem from="1773144970960" duration="544000" />
+      <workItem from="1773152850265" duration="21976000" />
+      <workItem from="1773216291680" duration="28885000" />
+      <workItem from="1773337494054" duration="3478000" />
+      <workItem from="1773343049872" duration="565000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -1,9 +1,10 @@
 {
   "hero": {
-    "line1": "Wij bouwen",
-    "line2": "websites die jou",
-    "line3": "vooruithelpen",
-    "description": "Nieuwe website nodig of je huidige site vernieuwen? Wij ontwerpen en ontwikkelen moderne websites op maat voor bedrijven die willen groeien.",
+    "line1": "Wij bouwen websites",
+    "line2": "die jou vooruit helpen",
+    "desc1": "Nieuwe website nodig of je huidige site vernieuwen?",
+    "desc2": "Wij ontwerpen en ontwikkelen moderne websites",
+    "desc3": "op maat voor bedrijven die willen groeien.",
     "cta": "Samenwerken?"
   },
 
@@ -14,32 +15,26 @@
 
     "items": {
       "yolean": {
-        "title": "Startup website",
         "description": "Moderne website voor een beautysalon."
       },
 
       "emprecords": {
-        "title": "Webshop voor vinyl platen",
         "description": "E-commerce verkoop van vinyl platen."
       },
 
       "tickets-bijzaak": {
-        "title": "Boekingsplatform met betaalsysteem",
         "description": "Boeken van evenementen met dashboard en betalingssysteem."
       },
 
       "bijzaak": {
-        "title": "Website entertainment sector",
         "description": "Website voor het bekijken van aankomende evenementen."
       },
 
       "afsprakenplatform-natalyahaarmode": {
-        "title": "Boekingsplatform met beheersysteem",
         "description": "Online afspraken maken met dashboard."
       },
 
       "bergheuvel": {
-        "title": "Informatieve website",
         "description": "Website voor een Nederlands bouwbedrijf."
       }
     }

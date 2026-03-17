@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import nl from "@/languages/nl.json";
 import en from "@/languages/en.json";
 import { Linkedin } from "lucide-react";
@@ -9,7 +9,16 @@ type FooterProps = {
     locale: "nl" | "en";
 };
 
+declare global {
+    interface Window {
+        turnstile?: {
+            execute: (selector: string) => void;
+        };
+        onTurnstileSuccess?: () => void;
+    }
+}
 export default function Footer({ locale }: FooterProps) {
+
 
     const t = locale === "nl" ? nl : en;
 
@@ -25,13 +34,20 @@ export default function Footer({ locale }: FooterProps) {
         );
     };
 
+    useEffect(() => {
+        window.onTurnstileSuccess = function () {
+            const form = document.getElementById("contact-form") as HTMLFormElement | null;
+            if (form) form.submit();
+        };
+    }, []);
+
     return (
         <footer id="contact" className="border-t bg-black text-white py-20 px-6">
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
 
                 {/* Quote */}
-                <div className="max-w-md">
+                <div className="max-w-md order-2 md:order-1">
 
                     <p className="text-2xl md:text-3xl font-medium text-gray-200 leading-snug">
                         {t.footer.quote1}
@@ -132,13 +148,14 @@ export default function Footer({ locale }: FooterProps) {
                 </div>
 
                 {/* Contact form */}
-                <div className="max-w-lg w-full">
+                <div className="max-w-lg w-full order-1 md:order-2">
 
                     <h3 className="text-xl font-semibold mb-6">
                         {t.footer.title}
                     </h3>
 
                     <form
+                        id="contact-form"
                         action="https://formsubmit.co/hello@koppelbaar.agency"
                         method="POST"
                         className="grid grid-cols-2 gap-4"
@@ -187,7 +204,7 @@ export default function Footer({ locale }: FooterProps) {
                     ${
                                             selected.includes(option)
                                                 ? "bg-purple-600 border-purple-600 text-white"
-                                                : "border-gray-700 text-gray-300 hover:border-purple-500 hover:text-white"
+                                                : "border-gray-700 text-gray-300 hover:border-purple-400 hover:text-white"
                                         }`}
                                     >
                                         {option}
@@ -209,12 +226,19 @@ export default function Footer({ locale }: FooterProps) {
                         />
 
                         <div
-                            className="cf-turnstile col-span-2"
+                            id="turnstile-widget"
+                            className="cf-turnstile"
                             data-sitekey="0x4AAAAAACqHxsri0XZmpKVW"
-                            data-theme="dark"
-                        ></div>
+                            data-size="invisible"
+                            data-callback="onTurnstileSuccess"
+                        />
                         <button
-                            type="submit"
+                            type="button"
+                            onClick={() => {
+                                if (window.turnstile) {
+                                    window.turnstile.execute("#turnstile-widget");
+                                }
+                            }}
                             className="col-span-2 bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition"
                         >
                             {t.footer.send}
@@ -227,17 +251,22 @@ export default function Footer({ locale }: FooterProps) {
             </div>
 
             {/* bottom */}
-            <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-gray-800 text-sm text-gray-500 flex flex-col md:flex-row justify-between gap-4">
+            <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-gray-800 text-xs sm:text-sm text-gray-500 flex items-center">
 
-        <span>
-          © {new Date().getFullYear()} koppelbaar.
-        </span>
-
-                <div className="flex gap-6">
-                    <a href={`/${locale}/privacy`} className="hover:text-white">{t.footer.privacy}</a>
+                <div className="flex items-center gap-4">
+                    <span>© {new Date().getFullYear()} koppelbaar.</span>
+                    <span>BTW BE0123.456.789</span>
                 </div>
 
+                <a
+                    href={`/${locale}/privacy`}
+                    className="ml-auto hover:text-white"
+                >
+                    {t.footer.privacy}
+                </a>
+
             </div>
+
 
         </footer>
     );

@@ -1,9 +1,10 @@
 {
   "hero": {
-    "line1": "We build",
-    "line2": "websites that move",
-    "line3": "your business forward",
-    "description": "Need a new website or want to upgrade your current one? We design and develop modern, custom websites for companies that want to grow.",
+    "line1": "We build websites",
+    "line2": "that help you grow",
+    "desc1": "Need a new website or upgrade your current one?",
+    "desc2": "We design and develop modern, custom websites for",
+    "desc3": "companies that want to grow.",
     "cta": "Start a project?"
   },
 
@@ -14,32 +15,26 @@
 
     "items": {
       "yolean": {
-        "title": "Startup website",
         "description": "Modern website for a beauty salon."
       },
 
       "emprecords": {
-        "title": "Vinyl record webshop",
         "description": "E-commerce platform for selling vinyl records."
       },
 
       "tickets-bijzaak": {
-        "title": "Booking platform with payments",
         "description": "Event booking platform with dashboard and integrated payment system."
       },
 
       "bijzaak": {
-        "title": "Entertainment website",
         "description": "Website showcasing upcoming events."
       },
 
       "afsprakenplatform-natalyahaarmode": {
-        "title": "Appointment booking platform",
         "description": "Online appointment booking system with management dashboard."
       },
 
       "bergheuvel": {
-        "title": "Corporate website",
         "description": "Website for a Dutch construction company."
       }
     }

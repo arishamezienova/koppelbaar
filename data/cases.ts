@@ -1,5 +1,6 @@
 export const cases = [
     {
+        title: "Bergheuvel Afbouw BV",
         slug: "bergheuvel",
         image: "/cases/bergheuvel1.webp",
         screenshots: [
@@ -11,6 +12,7 @@ export const cases = [
         website:"https://www.bergheuvel.nl/home",
     },
     {
+        title: "Tickets Bijzaak vzw",
         slug: "tickets-bijzaak",
         image: "/cases/tickets-bijzaak1.webp",
         screenshots: [
@@ -22,6 +24,7 @@ export const cases = [
         website:"https://tickets.bijzaak-vzw.be/",
     },
     {
+        title: "El Mono Pintado Records",
         slug: "emprecords",
         image: "/cases/emprecords.webp",
         screenshots: [
@@ -33,6 +36,7 @@ export const cases = [
         website:"https://www.emprecords.be/",
     },
     {
+        title: "Afsprakenplatform Natalya Haarmode",
         slug: "afsprakenplatform-natalyahaarmode",
         image: "/cases/bookingsplatform.webp",
         screenshots: [
@@ -49,6 +53,7 @@ export const cases = [
     },
 
     {
+        title: "Yo'lean",
         slug: "yolean",
         image: "/cases/yolean.webp",
         screenshots: [
@@ -60,6 +65,7 @@ export const cases = [
         website:"https://yolean.be/",
     },
     {
+        title: "Bijzaak vzw",
         slug: "bijzaak",
         image: "/cases/bijzaak-vzw-web.webp",
         screenshots: [

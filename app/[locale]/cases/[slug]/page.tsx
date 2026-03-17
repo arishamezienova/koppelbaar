@@ -50,7 +50,7 @@ export default async function CasePage({ params }: Props) {
                             <div className="relative h-[260px] md:h-[360px] w-full rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                                 <Image
                                     src={caseData.image}
-                                    alt={caseContentText.title}
+                                    alt={caseData.title}
                                     fill
                                     priority
                                     sizes="(max-width: 768px) 100vw, 600px"
@@ -61,10 +61,10 @@ export default async function CasePage({ params }: Props) {
                             {/* TEXT */}
                             <div className="max-w-xl order-2 md:order-1">
 
-                                <div className="w-10 h-1 bg-purple-500 mb-4 rounded-full"></div>
+                                <div className="w-10 h-1 bg-purple-600 mb-4 rounded-full"></div>
 
                                 <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-black mb-4">
-                                    {caseContentText.title}
+                                    {caseData.title}
                                 </h1>
 
                                 <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6">
@@ -76,13 +76,13 @@ export default async function CasePage({ params }: Props) {
                                         href={caseData.website}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group inline-flex items-center gap-2 text-gray-700 hover:text-purple-600 transition font-medium"
+                                        className="group inline-flex items-center gap-2 text-gray-700 hover:text-purple-400 transition font-medium"
                                     >
                     <span className="transition-transform duration-200 group-hover:translate-x-1">
                       {t.cases.viewLive}
                     </span>
 
-                                        <span className="opacity-0 group-hover:opacity-100 transition text-purple-600">
+                                        <span className="opacity-0 group-hover:opacity-100 transition text-purple-400">
                       →
                     </span>
                                     </a>
@@ -102,7 +102,7 @@ export default async function CasePage({ params }: Props) {
 
                 {/* LEFT SCREENSHOT */}
                 {caseData.screenshots && caseData.screenshots.length > 0 && (
-                    <div className="md:sticky md:top-32">
+                    <div className="order-2 md:order-1 md:sticky md:top-32">
 
                         <FadeIn>
                             <Image
@@ -134,37 +134,33 @@ export default async function CasePage({ params }: Props) {
                 {/* RIGHT CONTENT */}
                 <article
                     className="
-          prose prose-lg
-          max-w-none
-
-          prose-headings:text-black
-          prose-headings:font-semibold
-          prose-headings:tracking-tight
-
-          prose-h2:text-2xl
-          prose-h2:mt-0
-          prose-h2:mb-4
-          prose-h2:relative
-          prose-h2:pl-6
-          prose-h2:before:content-['']
-          prose-h2:before:absolute
-          prose-h2:before:left-0
-          prose-h2:before:top-1
-          prose-h2:before:h-6
-          prose-h2:before:w-1
-          prose-h2:before:bg-purple-500
-          prose-h2:before:rounded-full
-
-          prose-h3:text-xl
-          prose-h3:mt-10
-          prose-h3:mb-3
-
-          prose-p:text-gray-700
-          prose-p:leading-relaxed
-
-          prose-ul:space-y-2
-          prose-li:text-gray-700
-          "
+                    order-1 md:order-2
+                    prose prose-lg
+                    max-w-none
+                    prose-headings:text-black
+                    prose-headings:font-semibold
+                    prose-headings:tracking-tight
+                    prose-h2:text-2xl
+                    prose-h2:mt-0
+                    prose-h2:mb-4
+                    prose-h2:relative
+                    prose-h2:pl-6
+                    prose-h2:before:content-['']
+                    prose-h2:before:absolute
+                    prose-h2:before:left-0
+                    prose-h2:before:top-1
+                    prose-h2:before:h-6
+                    prose-h2:before:w-1
+                    prose-h2:before:bg-purple-600
+                    prose-h2:before:rounded-full
+                    prose-h3:text-xl
+                    prose-h3:mt-10
+                    prose-h3:mb-3
+                    prose-p:text-gray-700
+                    prose-p:leading-relaxed
+                    prose-ul:space-y-2
+                    prose-li:text-gray-700
+                    "
                 >
                     <CaseContent
                         slug={slug}

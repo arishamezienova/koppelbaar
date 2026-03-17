@@ -25,7 +25,6 @@ export default function Cases({ locale }: CasesProps) {
 
                     {cases.map((c) => {
                         const caseContent = t.cases.items[c.slug as keyof typeof t.cases.items] ?? {
-                            title: "",
                             description: ""
                         };
                         return(
@@ -39,7 +38,7 @@ export default function Cases({ locale }: CasesProps) {
                                     <div className="relative h-56 w-full overflow-hidden">
                                         <Image
                                             src={c.image}
-                                            alt={caseContent.title || "Project image"}
+                                            alt={c.title || "Project image"}
                                             fill
                                             className="object-cover transition duration-500 group-hover:scale-105"
                                         />
@@ -48,7 +47,7 @@ export default function Cases({ locale }: CasesProps) {
                                     <div className="p-6 flex flex-col grow">
 
                                         <h3 className="font-semibold text-lg text-black">
-                                            {caseContent.title}
+                                            {c.title}
                                         </h3>
 
                                         <p className="text-gray-600 mt-2 text-sm leading-relaxed line-clamp-2">

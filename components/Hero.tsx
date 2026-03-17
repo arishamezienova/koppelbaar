@@ -20,33 +20,30 @@ export default function Hero({ locale }: HeroProps) {
 
             <div className="relative max-w-6xl mx-auto w-full px-6 py-24 md:py-0">
 
-                <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
-
+                <div className="flex items-center">
                     {/* TEXT */}
-                    <div className="text-white">
+                    <div className="text-white max-w-none">
+                        <h1 className="font-bold tracking-tight leading-[0.95] mb-6 uppercase text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl">
+                            <span className="block">
+                                {t.line1}
+                            </span>
 
-                        <h1
-                            className={`font-bold tracking-tight leading-[1.05] mb-6 ${
-                                locale === "en"
-                                    ? "text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
-                                    : "text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
-                            }`}
-                        >
-                            {t.line1}
-                            <br />
-                            {t.line2}
-                            <br />
-                            {t.line3}
-                            <span className="text-purple-500">.</span>
+                            <span className="block">
+                                {t.line2}
+                                <span className="text-purple-600">.</span>
+                            </span>
+
                         </h1>
 
-                        <p className="max-w-md text-gray-200 text-sm sm:text-base md:text-lg leading-relaxed">
-                            {t.description}
+                        <p className="max-w-sm sm:max-w-md md:max-w-xl text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg mt-4 leading-relaxed md:leading-relaxed">
+                            <span className="block">{t.desc1}</span>
+                            <span className="block">{t.desc2}</span>
+                            <span className="block">{t.desc3}</span>
                         </p>
 
                         <a
                             href="#contact"
-                            className="mt-8 inline-flex group relative items-center gap-2 pr-4 pl-1 py-1 rounded-full border-2 border-white overflow-hidden"
+                            className="mt-8 inline-flex group relative items-center gap-2 pr-3 pl-1 py-1 rounded-full border border-white text-xs sm:text-sm overflow-hidden"
                         >
                             <span className="absolute inset-0 bg-purple-600 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
 

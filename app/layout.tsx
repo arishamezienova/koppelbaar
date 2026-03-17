@@ -30,7 +30,7 @@ export default function RootLayout({
 
         {/* Cloudflare Turnstile */}
         <Script
-            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
             strategy="afterInteractive"
         />
 

@@ -9,6 +9,7 @@ const poppins = Poppins({
     weight: ["300", "400", "500", "600", "700"],
 });
 
+
 export const metadata: Metadata = {
     title: "koppelbaar",
     description: "Websites die bedrijven vooruithelpen",
@@ -28,15 +29,8 @@ export default function RootLayout({
         {/* Cookie banner */}
         <CookieBanner />
 
-        {/* Cloudflare Turnstile */}
         <Script
-            src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
-            strategy="afterInteractive"
-        />
-
-        {/* Contentsquare / Hotjar */}
-        <Script
-            src="https://t.contentsquare.net/uxa/c793f7ae91402.js"
+            src="https://www.google.com/recaptcha/api.js?render=6LdniY4sAAAAAF6sVm_m3IB-RN-pOVXTnzZLk5yh"
             strategy="afterInteractive"
         />
 

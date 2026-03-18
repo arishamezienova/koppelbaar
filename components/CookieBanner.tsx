@@ -6,17 +6,26 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
 import * as CookieConsent from "vanilla-cookieconsent";
 
 export default function CookieBanner() {
-
     const pathname = usePathname();
     const locale = pathname.startsWith("/nl") ? "nl" : "en";
 
-    useEffect(() => {
+    // 🔥 laad analytics script
+    const loadAnalytics = () => {
+        if (document.getElementById("cs-script")) return;
 
-        // reset banner when language changes
+        const script = document.createElement("script");
+        script.src = "https://t.contentsquare.net/uxa/c793f7ae91402.js";
+        script.async = true;
+        script.id = "cs-script";
+
+        document.body.appendChild(script);
+    };
+
+    useEffect(() => {
+        // reset bij taal switch
         (CookieConsent as any).reset();
 
         CookieConsent.run({
-
             guiOptions: {
                 consentModal: {
                     layout: "box",
@@ -35,11 +44,23 @@ export default function CookieBanner() {
                 analytics: {}
             },
 
+            // 🔥 HIER GEBEURT DE MAGIE
+            onConsent: ({ cookie }) => {
+                if (cookie.categories.includes("analytics")) {
+                    loadAnalytics();
+                }
+            },
+
+            onChange: ({ cookie }) => {
+                if (cookie.categories.includes("analytics")) {
+                    loadAnalytics();
+                }
+            },
+
             language: {
                 default: locale,
 
                 translations: {
-
                     en: {
                         consentModal: {
                             title: `<img src="/cookie.webp" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Your privacy matters`,
@@ -49,7 +70,6 @@ export default function CookieBanner() {
                             acceptNecessaryBtn: "Reject",
                             showPreferencesBtn: "Preferences"
                         },
-
                         preferencesModal: {
                             title: "Cookie preferences",
                             acceptAllBtn: "Accept all",
@@ -81,7 +101,6 @@ export default function CookieBanner() {
                             acceptNecessaryBtn: "Weigeren",
                             showPreferencesBtn: "Instellingen"
                         },
-
                         preferencesModal: {
                             title: "Cookie instellingen",
                             acceptAllBtn: "Alles accepteren",
@@ -103,12 +122,15 @@ export default function CookieBanner() {
                             ]
                         }
                     }
-
                 }
-
             }
-
         });
+
+        // 🔥 check bij reload (belangrijk!)
+        const consent = CookieConsent.getCookie();
+        if (consent?.categories?.includes("analytics")) {
+            loadAnalytics();
+        }
 
     }, [locale]);
 

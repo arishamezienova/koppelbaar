@@ -210,7 +210,7 @@ export default function Footer({ locale }: FooterProps) {
                 <div className="flex">
                     <div className="flex gap-4">
                         <span>© {new Date().getFullYear()} koppelbaar.</span>
-                        <span>BTW BE0123.456.789</span>
+                        <span>BTW BE0791.252.457</span>
                     </div>
 
                     <a href={`/${locale}/privacy`} className="ml-auto hover:text-white">

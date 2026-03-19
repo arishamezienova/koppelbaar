@@ -57,12 +57,15 @@ export default function Footer({ locale }: FooterProps) {
                 token,
             };
 
-            const res = await fetch("/api/contact", {
+            const res = await fetch("/verify.php", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
+                body: new URLSearchParams({
+                    name: data.name as string,
+                    email: data.email as string,
+                    message: data.message as string,
+                    interests: data.interests as string,
+                    token: data.token as string,
+                }),
             });
 
             if (res.ok) {
@@ -145,7 +148,6 @@ export default function Footer({ locale }: FooterProps) {
                         className="grid grid-cols-2 gap-4"
                     >
 
-                        {/* ❌ alles van FormSubmit weg */}
 
                         <input
                             name="name"
@@ -203,16 +205,40 @@ export default function Footer({ locale }: FooterProps) {
             </div>
 
             {/* bottom */}
-            <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-gray-800 text-xs text-gray-500 flex">
+            <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-gray-800 text-xs text-gray-500">
 
-                <div className="flex gap-4">
-                    <span>© {new Date().getFullYear()} koppelbaar.</span>
-                    <span>BTW BE0123.456.789</span>
+                <div className="flex">
+                    <div className="flex gap-4">
+                        <span>© {new Date().getFullYear()} koppelbaar.</span>
+                        <span>BTW BE0123.456.789</span>
+                    </div>
+
+                    <a href={`/${locale}/privacy`} className="ml-auto hover:text-white">
+                        {t.footer.privacy}
+                    </a>
                 </div>
 
-                <a href={`/${locale}/privacy`} className="ml-auto hover:text-white">
-                    {t.footer.privacy}
-                </a>
+                {/* 👇 NIEUW TOEGEVOEGD */}
+                <p className="text-xs text-gray-500 mt-6 max-w-md">
+                    This site is protected by reCAPTCHA and the Google{" "}
+                    <a
+                        href="https://policies.google.com/privacy"
+                        target="_blank"
+                        className="underline hover:text-white"
+                    >
+                        Privacy Policy
+                    </a>{" "}
+                    and{" "}
+                    <a
+                        href="https://policies.google.com/terms"
+                        target="_blank"
+                        className="underline hover:text-white"
+                    >
+                        Terms of Service
+                    </a>{" "}
+                    apply.
+                </p>
+
             </div>
         </footer>
     );

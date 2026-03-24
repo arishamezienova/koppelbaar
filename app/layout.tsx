@@ -13,6 +13,39 @@ const poppins = Poppins({
 export const metadata: Metadata = {
     title: "koppelbaar",
     description: "Websites die bedrijven vooruithelpen",
+    keywords: [
+        "webdesign",
+        "website op maat",
+        "webbureau",
+        "digitaal bureau",
+        "webontwikkeling",
+        "Hasselt",
+        "Limburg",
+        "België",
+        "bedrijfswebsite",
+        "Next.js",
+        "web agency",
+        "web design Belgium",
+        "website laten maken",
+        "professionele website",
+    ],
+    icons: {
+        icon: [
+            { url: "/favicon.png", type: "image/png" },
+            { url: "/favicon.ico", type: "image/x-icon" },
+        ],
+        shortcut: "/favicon.png",
+        apple: "/favicon.png",
+    },
+    openGraph: {
+        title: "koppelbaar",
+        description: "Websites die bedrijven vooruithelpen",
+        url: "https://koppelbaar.agency",
+        siteName: "koppelbaar",
+        locale: "nl_BE",
+        type: "website",
+    },
+    metadataBase: new URL("https://koppelbaar.agency"),
 };
 
 export default function RootLayout({

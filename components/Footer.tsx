@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import nl from "@/languages/nl.json";
 import en from "@/languages/en.json";
 import { Linkedin } from "lucide-react";
@@ -15,6 +15,21 @@ declare global {
     }
 }
 
+const RECAPTCHA_SITE_KEY = "6LdniY4sAAAAAF6sVm_m3IB-RN-pOVXTnzZLk5yh";
+const RECAPTCHA_SCRIPT_ID = "recaptcha-v3-script";
+
+function loadRecaptcha() {
+    if (typeof window === "undefined") return;
+    if (document.getElementById(RECAPTCHA_SCRIPT_ID)) return;
+
+    const script = document.createElement("script");
+    script.id = RECAPTCHA_SCRIPT_ID;
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+}
+
 export default function Footer({ locale }: FooterProps) {
 
     const t = locale === "nl" ? nl : en;
@@ -22,6 +37,30 @@ export default function Footer({ locale }: FooterProps) {
 
     const [selected, setSelected] = useState<string[]>([]);
     const [loading, setLoading] = useState(false);
+    const formRef = useRef<HTMLFormElement | null>(null);
+
+    useEffect(() => {
+        const el = formRef.current;
+        if (!el) return;
+
+        if (typeof IntersectionObserver === "undefined") {
+            loadRecaptcha();
+            return;
+        }
+
+        const io = new IntersectionObserver(
+            (entries) => {
+                if (entries.some((e) => e.isIntersecting)) {
+                    loadRecaptcha();
+                    io.disconnect();
+                }
+            },
+            { rootMargin: "200px" }
+        );
+        io.observe(el);
+
+        return () => io.disconnect();
+    }, []);
 
     const toggle = (value: string) => {
         setSelected(prev =>
@@ -33,6 +72,14 @@ export default function Footer({ locale }: FooterProps) {
 
     // ✅ NIEUWE SUBMIT (API ROUTE)
     const handleSubmit = async () => {
+        // Ensure the script is loaded if the user submits before the observer fires.
+        loadRecaptcha();
+
+        // Wait briefly for grecaptcha to attach if needed.
+        for (let i = 0; i < 50 && !window.grecaptcha?.execute; i++) {
+            await new Promise((r) => setTimeout(r, 100));
+        }
+
         if (!window.grecaptcha) {
             console.log("reCAPTCHA not loaded");
             return;
@@ -41,8 +88,10 @@ export default function Footer({ locale }: FooterProps) {
         setLoading(true);
 
         try {
+            await new Promise<void>((resolve) => window.grecaptcha.ready(resolve));
+
             const token = await window.grecaptcha.execute(
-                "6LdniY4sAAAAAF6sVm_m3IB-RN-pOVXTnzZLk5yh", // jouw site key
+                RECAPTCHA_SITE_KEY,
                 { action: "submit" }
             );
 
@@ -97,7 +146,7 @@ export default function Footer({ locale }: FooterProps) {
                     <div className="mt-8 space-y-4 text-sm">
 
                         <div>
-                            <span className="text-gray-500">Email</span>
+                            <span className="text-gray-400">Email</span>
                             <a href="mailto:hello@koppelbaar.agency"
                                className="text-gray-400 hover:text-purple-400 mt-1 block">
                                 hello@koppelbaar.agency
@@ -105,7 +154,7 @@ export default function Footer({ locale }: FooterProps) {
                         </div>
 
                         <div>
-                            <span className="text-gray-500">{t.footer.phone}</span>
+                            <span className="text-gray-400">{t.footer.phone}</span>
 
                             <a href="tel:+32488823625"
                                className="text-gray-400 hover:text-purple-400 mt-1 block">
@@ -119,16 +168,20 @@ export default function Footer({ locale }: FooterProps) {
                         </div>
 
                         <div>
-                            <span className="text-gray-500">{t.footer.profile}</span>
+                            <span className="text-gray-400">{t.footer.profile}</span>
 
                             <a href="https://www.linkedin.com/in/koen-gielissen/"
                                target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="LinkedIn — Koen Gielissen"
                                className="flex items-center gap-2 text-gray-400 hover:text-purple-400 mt-1">
                                 <Linkedin size={16}/> Koen Gielissen
                             </a>
 
                             <a href="https://www.linkedin.com/in/arisha-mezienova-9a0626305/"
                                target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="LinkedIn — Arisha Mezienova"
                                className="flex items-center gap-2 text-gray-400 hover:text-purple-400 mt-1">
                                 <Linkedin size={16}/> Arisha Mezienova
                             </a>
@@ -145,58 +198,77 @@ export default function Footer({ locale }: FooterProps) {
 
                     <form
                         id="contact-form"
+                        ref={formRef}
+                        onFocus={loadRecaptcha}
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            void handleSubmit();
+                        }}
+                        noValidate={false}
                         className="grid grid-cols-2 gap-4"
                     >
-
 
                         <input
                             name="name"
                             required
+                            aria-required="true"
+                            aria-label={t.footer.name}
+                            autoComplete="name"
                             placeholder={t.footer.name}
-                            className="bg-black border border-gray-700 rounded-lg px-4 py-3"
+                            className="bg-black border border-gray-700 rounded-lg px-4 py-3 user-invalid:border-red-500/60 focus:border-purple-500 focus:outline-none transition-colors"
                         />
 
                         <input
                             name="email"
                             type="email"
                             required
+                            aria-required="true"
+                            aria-label={t.footer.email}
+                            autoComplete="email"
                             placeholder={t.footer.email}
-                            className="bg-black border border-gray-700 rounded-lg px-4 py-3"
+                            className="bg-black border border-gray-700 rounded-lg px-4 py-3 user-invalid:border-red-500/60 focus:border-purple-500 focus:outline-none transition-colors"
                         />
 
-                        <div className="col-span-2">
+                        <fieldset className="col-span-2">
+                            <legend className="sr-only">{t.footer.interest}</legend>
                             <div className="flex flex-wrap gap-3">
-                                {options.map(option => (
-                                    <button
-                                        key={option}
-                                        type="button"
-                                        onClick={() => toggle(option)}
-                                        className={`px-4 py-2 rounded-full border ${
-                                            selected.includes(option)
-                                                ? "bg-purple-600 text-white"
-                                                : "border-gray-700 text-gray-300"
-                                        }`}
-                                    >
-                                        {option}
-                                    </button>
-                                ))}
+                                {options.map(option => {
+                                    const isSelected = selected.includes(option);
+                                    return (
+                                        <button
+                                            key={option}
+                                            type="button"
+                                            onClick={() => toggle(option)}
+                                            aria-pressed={isSelected}
+                                            className={`px-4 py-2 rounded-full border transition-colors ${
+                                                isSelected
+                                                    ? "bg-purple-600 text-white border-purple-600"
+                                                    : "border-gray-700 text-gray-300 hover:border-gray-500"
+                                            }`}
+                                        >
+                                            {option}
+                                        </button>
+                                    );
+                                })}
                             </div>
-                        </div>
+                        </fieldset>
 
                         <textarea
                             name="message"
+                            aria-label={t.footer.message}
                             placeholder={t.footer.message}
-                            className="col-span-2 bg-black border border-gray-700 rounded-lg px-4 py-3"
+                            rows={4}
+                            className="col-span-2 bg-black border border-gray-700 rounded-lg px-4 py-3 focus:border-purple-500 focus:outline-none transition-colors"
                         />
 
                         {/* BUTTON */}
                         <button
-                            type="button"
-                            onClick={handleSubmit}
+                            type="submit"
                             disabled={loading}
+                            aria-busy={loading}
                             className="col-span-2 bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition disabled:opacity-50"
                         >
-                            {loading ? "Versturen..." : t.footer.send}
+                            {loading ? (locale === "en" ? "Sending..." : "Versturen...") : t.footer.send}
                         </button>
 
                     </form>
@@ -205,7 +277,7 @@ export default function Footer({ locale }: FooterProps) {
             </div>
 
             {/* bottom */}
-            <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-gray-800 text-xs text-gray-500">
+            <div className="max-w-6xl mx-auto mt-16 pt-6 border-t border-gray-800 text-xs text-gray-400">
 
                 <div className="flex">
                     <div className="flex gap-4">
@@ -218,25 +290,26 @@ export default function Footer({ locale }: FooterProps) {
                     </a>
                 </div>
 
-                {/* 👇 NIEUW TOEGEVOEGD */}
-                <p className="text-xs text-gray-500 mt-6 max-w-md">
-                    This site is protected by reCAPTCHA and the Google{" "}
+                <p className="text-xs text-gray-400 mt-6 max-w-md">
+                    {t.footer.recaptcha.before}
                     <a
                         href="https://policies.google.com/privacy"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="underline hover:text-white"
                     >
-                        Privacy Policy
-                    </a>{" "}
-                    and{" "}
+                        {t.footer.recaptcha.privacy}
+                    </a>
+                    {t.footer.recaptcha.middle}
                     <a
                         href="https://policies.google.com/terms"
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="underline hover:text-white"
                     >
-                        Terms of Service
-                    </a>{" "}
-                    apply.
+                        {t.footer.recaptcha.terms}
+                    </a>
+                    {t.footer.recaptcha.after}
                 </p>
 
             </div>

@@ -6,7 +6,7 @@ export const cases = [
         screenshots: [
             {
                 src: "/cases/bergheuvel-web.webp",
-                alt: "Mobile layout"
+                alt: "Bergheuvel Afbouw BV — website preview op desktop"
             },
         ],
         website:"https://www.bergheuvel.nl/home",
@@ -18,7 +18,7 @@ export const cases = [
         screenshots: [
             {
                 src: "/cases/tickets-bijzaak-tablet.webp",
-                alt: "Mobile layout"
+                alt: "Tickets Bijzaak vzw — ticketplatform op tablet"
             },
         ],
         website:"https://tickets.bijzaak-vzw.be/",
@@ -30,23 +30,23 @@ export const cases = [
         screenshots: [
             {
                 src: "/cases/emprecords-mobile.webp",
-                alt: "Mobile layout"
+                alt: "El Mono Pintado Records — webshop op mobiel"
             },
         ],
         website:"https://www.emprecords.be/",
     },
     {
-        title: "Afsprakenplatform Natalya Haarmode",
+        title: "Natalya Haarmode",
         slug: "afsprakenplatform-natalyahaarmode",
         image: "/cases/bookingsplatform.webp",
         screenshots: [
             {
                 src: "/cases/bookingsplatform-mobile.webp",
-                alt: "Mobile layout"
+                alt: "Afsprakenplatform Natalya Haarmode — boekingsflow op mobiel"
             },
             {
                 src: "/cases/bookingsplatform-tablet.webp",
-                alt: "Dashboard overview"
+                alt: "Afsprakenplatform Natalya Haarmode — dashboard overzicht"
             }
         ],
         website:"https://www.afsprakenplatform.natalyahaarmode.be/",
@@ -59,7 +59,7 @@ export const cases = [
         screenshots: [
             {
                 src: "/cases/yolean-mobile.webp",
-                alt: "Mobile layout"
+                alt: "Yo'lean — beautysalon website op mobiel"
             },
         ],
         website:"https://yolean.be/",
@@ -71,7 +71,7 @@ export const cases = [
         screenshots: [
             {
                 src: "/cases/bijzaak-vzw-tablet.webp",
-                alt: "Mobile layout"
+                alt: "Bijzaak vzw — eventwebsite op tablet"
             },
         ],
         website:"https://bijzaak-vzw.be/",

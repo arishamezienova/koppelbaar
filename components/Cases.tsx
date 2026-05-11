@@ -3,6 +3,7 @@ import Image from "next/image";
 import { cases } from "@/data/cases";
 import nl from "@/languages/nl.json";
 import en from "@/languages/en.json";
+import ScrollIn from "@/components/ScrollIn";
 
 type CasesProps = {
     locale: "nl" | "en";
@@ -23,14 +24,15 @@ export default function Cases({ locale }: CasesProps) {
 
                 <div className="grid md:grid-cols-3 gap-10 items-stretch">
 
-                    {cases.map((c) => {
+                    {cases.map((c, i) => {
                         const caseContent = t.cases.items[c.slug as keyof typeof t.cases.items] ?? {
                             description: ""
                         };
                         return(
+                            <ScrollIn key={c.slug} delay={i * 80} className="h-full">
                             <Link
-                                key={c.slug}
                                 href={`/${locale}/cases/${c.slug}`}
+                                prefetch={false}
                                 className="group block h-full"
                             >
                                 <div className="overflow-hidden rounded-xl border bg-white transition hover:shadow-lg h-full flex flex-col">
@@ -46,7 +48,7 @@ export default function Cases({ locale }: CasesProps) {
 
                                     <div className="p-6 flex flex-col grow">
 
-                                        <h3 className="font-semibold text-lg text-black">
+                                        <h3 className="font-semibold text-lg text-black truncate">
                                             {c.title}
                                         </h3>
 
@@ -62,6 +64,7 @@ export default function Cases({ locale }: CasesProps) {
 
                                 </div>
                             </Link>
+                            </ScrollIn>
                         );
                     })}
                 </div>

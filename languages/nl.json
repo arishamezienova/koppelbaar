@@ -8,6 +8,41 @@
     "cta": "Samenwerken?"
   },
 
+  "services": {
+    "title": "Wat we doen?",
+    "subtitle": "Van strakke marketingsites tot platformen die je hele bedrijf draaiende houden.",
+    "items": {
+      "website": {
+        "title": "Website",
+        "description": "Een snelle, moderne site die jouw verhaal duidelijk vertelt."
+      },
+      "webapp": {
+        "title": "Web app",
+        "description": "Interactieve applicaties op maat, gebouwd in de browser."
+      },
+      "platform": {
+        "title": "Platform",
+        "description": "Volwaardige systemen waar jouw gebruikers dagelijks in werken."
+      },
+      "integrations": {
+        "title": "Integraties",
+        "description": "Bestaande tools verbinden tot één werkend geheel."
+      },
+      "api": {
+        "title": "API koppeling",
+        "description": "Data laten stromen tussen diensten en software."
+      },
+      "consulting": {
+        "title": "Advies",
+        "description": "Strategisch meedenken over jouw digitale volgende stap."
+      },
+      "ai": {
+        "title": "AI integraties",
+        "description": "AI-features in jouw product: van chatbots en slimme zoek tot automatisering."
+      }
+    }
+  },
+
   "cases": {
     "title": "Cases",
     "cta": "Bekijk case →",
@@ -51,6 +86,13 @@
     "privacy": "Privacybeleid",
     "phone": "Telefoon",
     "profile": "Profielen",
+    "recaptcha": {
+      "before": "Deze site is beveiligd door reCAPTCHA en het Google ",
+      "privacy": "Privacybeleid",
+      "middle": " en ",
+      "terms": "Servicevoorwaarden",
+      "after": " zijn van toepassing."
+    },
 
     "options": [
       "Website",
@@ -58,6 +100,7 @@
       "Platform",
       "Integraties",
       "API koppeling",
+      "AI integraties",
       "Advies"
     ]
   },

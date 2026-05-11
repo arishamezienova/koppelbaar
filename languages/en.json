@@ -8,6 +8,41 @@
     "cta": "Start a project?"
   },
 
+  "services": {
+    "title": "What do we do?",
+    "subtitle": "From sharp marketing sites to platforms that keep your business running.",
+    "items": {
+      "website": {
+        "title": "Website",
+        "description": "A fast, modern site that tells your story clearly."
+      },
+      "webapp": {
+        "title": "Web app",
+        "description": "Custom-built interactive applications, right in the browser."
+      },
+      "platform": {
+        "title": "Platform",
+        "description": "Full systems your users rely on every day."
+      },
+      "integrations": {
+        "title": "Integrations",
+        "description": "Connecting existing tools into one working whole."
+      },
+      "api": {
+        "title": "API integration",
+        "description": "Letting data flow between services and software."
+      },
+      "consulting": {
+        "title": "Consulting",
+        "description": "Strategic thinking for your next digital step."
+      },
+      "ai": {
+        "title": "AI integration",
+        "description": "AI features in your product: from chatbots and smart search to automation."
+      }
+    }
+  },
+
   "cases": {
     "title": "Cases",
     "cta": "View project →",
@@ -51,6 +86,13 @@
     "privacy": "Privacy Policy",
     "phone": "Phone",
     "profile": "Profiles",
+    "recaptcha": {
+      "before": "This site is protected by reCAPTCHA and the Google ",
+      "privacy": "Privacy Policy",
+      "middle": " and ",
+      "terms": "Terms of Service",
+      "after": " apply."
+    },
 
     "options": [
       "Website",
@@ -58,6 +100,7 @@
       "Platform",
       "Integrations",
       "API integration",
+      "AI integration",
       "Consulting"
     ]
   },

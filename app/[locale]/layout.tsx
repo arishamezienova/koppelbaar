@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HtmlLang from "@/components/HtmlLang";
 
 export function generateStaticParams() {
     return [
@@ -24,6 +25,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     return (
         <div className="min-h-screen text-black bg-white">
 
+            <HtmlLang locale={typedLocale} />
             <Header locale={typedLocale} />
             <main>{children}</main>
             <Footer locale={typedLocale} />

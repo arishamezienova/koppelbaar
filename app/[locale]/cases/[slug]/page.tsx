@@ -5,6 +5,8 @@ import nl from "@/languages/nl.json";
 import en from "@/languages/en.json";
 import CaseContent from "@/components/CaseContent";
 import FadeIn from "@/components/FadeIn";
+import type { Metadata } from "next";
+import { localeAlternates, SITE_URL } from "@/lib/seo";
 
 type Props = {
     params: Promise<{
@@ -17,6 +19,57 @@ export async function generateStaticParams() {
     return cases.map((c) => ({
         slug: c.slug,
     }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug, locale } = await params;
+    const caseData = cases.find((c) => c.slug === slug);
+
+    if (!caseData) {
+        return { title: locale === "en" ? "Case not found" : "Case niet gevonden" };
+    }
+
+    const typedLocale = (locale === "en" ? "en" : "nl") as "nl" | "en";
+    const t = typedLocale === "nl" ? nl : en;
+    const item = (t.cases.items as Record<string, { description?: string }>)[slug] ?? {};
+    const description =
+        item.description ??
+        (typedLocale === "en"
+            ? `${caseData.title} — a project by Koppelbaar.`
+            : `${caseData.title} — een project van Koppelbaar.`);
+
+    const url = `${SITE_URL}/${typedLocale}/cases/${slug}`;
+    const title =
+        typedLocale === "en"
+            ? `${caseData.title} — case study`
+            : `${caseData.title} — case`;
+
+    const ogImage = `${SITE_URL}${caseData.image}`;
+
+    return {
+        title,
+        description,
+        alternates: localeAlternates(typedLocale, {
+            nl: `/nl/cases/${slug}`,
+            en: `/en/cases/${slug}`,
+        }),
+        openGraph: {
+            type: "article",
+            siteName: "Koppelbaar",
+            url,
+            locale: typedLocale === "en" ? "en_US" : "nl_BE",
+            alternateLocale: [typedLocale === "en" ? "nl_BE" : "en_US"],
+            title,
+            description,
+            images: [{ url: ogImage, alt: caseData.title }],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [ogImage],
+        },
+    };
 }
 
 export default async function CasePage({ params }: Props) {
@@ -35,8 +88,54 @@ export default async function CasePage({ params }: Props) {
         description: "",
     };
 
+    const breadcrumbLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Koppelbaar",
+                item: `${SITE_URL}/${locale}`,
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: t.cases.title,
+                item: `${SITE_URL}/${locale}#cases`,
+            },
+            {
+                "@type": "ListItem",
+                position: 3,
+                name: caseData.title,
+                item: `${SITE_URL}/${locale}/cases/${slug}`,
+            },
+        ],
+    };
+
+    const creativeWorkLd = {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: caseData.title,
+        url: `${SITE_URL}/${locale}/cases/${slug}`,
+        image: `${SITE_URL}${caseData.image}`,
+        description: caseContentText.description,
+        creator: { "@type": "Organization", name: "Koppelbaar", url: SITE_URL },
+        inLanguage: locale === "en" ? "en" : "nl-BE",
+        ...(caseData.website ? { mainEntityOfPage: caseData.website } : {}),
+    };
+
     return (
         <section className="py-24 px-6 min-h-screen">
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(creativeWorkLd) }}
+            />
 
             {/* HERO */}
             <div className="max-w-6xl mx-auto mb-32">

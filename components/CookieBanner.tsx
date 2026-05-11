@@ -9,129 +9,144 @@ export default function CookieBanner() {
     const pathname = usePathname();
     const locale = pathname.startsWith("/nl") ? "nl" : "en";
 
-    // 🔥 laad analytics script
-    const loadAnalytics = () => {
-        if (document.getElementById("cs-script")) return;
-
-        const script = document.createElement("script");
-        script.src = "https://t.contentsquare.net/uxa/c793f7ae91402.js";
-        script.async = true;
-        script.id = "cs-script";
-
-        document.body.appendChild(script);
-    };
-
     useEffect(() => {
-        // reset bij taal switch
-        (CookieConsent as any).reset();
+        let cancelled = false;
 
-        CookieConsent.run({
-            guiOptions: {
-                consentModal: {
-                    layout: "box",
-                    position: "bottom right"
-                },
-                preferencesModal: {
-                    layout: "box"
-                }
-            },
+        const idle = (cb: () => void) => {
+            if (typeof window === "undefined") return;
+            const w = window as Window & {
+                requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+            };
+            if (typeof w.requestIdleCallback === "function") {
+                w.requestIdleCallback(cb, { timeout: 2000 });
+            } else {
+                setTimeout(cb, 1500);
+            }
+        };
 
-            categories: {
-                necessary: {
-                    enabled: true,
-                    readOnly: true
-                },
-                analytics: {}
-            },
+        idle(() => {
+            if (cancelled) return;
 
-            // 🔥 HIER GEBEURT DE MAGIE
-            onConsent: ({ cookie }) => {
-                if (cookie.categories.includes("analytics")) {
-                    loadAnalytics();
-                }
-            },
+            const loadAnalytics = () => {
+                if (document.getElementById("cs-script")) return;
+                const script = document.createElement("script");
+                script.src = "https://t.contentsquare.net/uxa/c793f7ae91402.js";
+                script.async = true;
+                script.id = "cs-script";
+                document.body.appendChild(script);
+            };
 
-            onChange: ({ cookie }) => {
-                if (cookie.categories.includes("analytics")) {
-                    loadAnalytics();
-                }
-            },
+            (CookieConsent as any).reset();
 
-            language: {
-                default: locale,
-
-                translations: {
-                    en: {
-                        consentModal: {
-                            title: `<img src="/cookie.webp" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Your privacy matters`,
-                            description:
-                                "We use cookies to enhance your experience, analyse traffic, and serve personalised content. 'Accept all' to consent per our Cookie and Privacy policies.",
-                            acceptAllBtn: "Accept all",
-                            acceptNecessaryBtn: "Reject",
-                            showPreferencesBtn: "Preferences"
-                        },
-                        preferencesModal: {
-                            title: "Cookie preferences",
-                            acceptAllBtn: "Accept all",
-                            acceptNecessaryBtn: "Reject all",
-                            savePreferencesBtn: "Save preferences",
-                            closeIconLabel: "Close",
-                            sections: [
-                                {
-                                    title: "Necessary cookies",
-                                    description:
-                                        "These cookies are essential for the website to function."
-                                },
-                                {
-                                    title: "Analytics cookies",
-                                    description:
-                                        "These cookies help us analyse website usage.",
-                                    linkedCategory: "analytics"
-                                }
-                            ]
-                        }
+            CookieConsent.run({
+                guiOptions: {
+                    consentModal: {
+                        layout: "box",
+                        position: "bottom right",
                     },
+                    preferencesModal: {
+                        layout: "box",
+                    },
+                },
 
-                    nl: {
-                        consentModal: {
-                            title: `<img src="/cookie.webp" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Uw privacy is belangrijk`,
-                            description:
-                                "Wij gebruiken cookies om uw ervaring te verbeteren, verkeer te analyseren en gepersonaliseerde content te tonen. Klik op 'Alles accepteren' om toestemming te geven volgens ons Cookie- en Privacybeleid.",
-                            acceptAllBtn: "Alles accepteren",
-                            acceptNecessaryBtn: "Weigeren",
-                            showPreferencesBtn: "Instellingen"
-                        },
-                        preferencesModal: {
-                            title: "Cookie instellingen",
-                            acceptAllBtn: "Alles accepteren",
-                            acceptNecessaryBtn: "Alles weigeren",
-                            savePreferencesBtn: "Instellingen opslaan",
-                            closeIconLabel: "Sluiten",
-                            sections: [
-                                {
-                                    title: "Noodzakelijke cookies",
-                                    description:
-                                        "Deze cookies zijn nodig voor de werking van de website."
-                                },
-                                {
-                                    title: "Analytics cookies",
-                                    description:
-                                        "Deze cookies helpen ons begrijpen hoe bezoekers de website gebruiken.",
-                                    linkedCategory: "analytics"
-                                }
-                            ]
-                        }
+                categories: {
+                    necessary: {
+                        enabled: true,
+                        readOnly: true,
+                    },
+                    analytics: {},
+                },
+
+                onConsent: ({ cookie }) => {
+                    if (cookie.categories.includes("analytics")) {
+                        loadAnalytics();
                     }
-                }
+                },
+
+                onChange: ({ cookie }) => {
+                    if (cookie.categories.includes("analytics")) {
+                        loadAnalytics();
+                    }
+                },
+
+                language: {
+                    default: locale,
+                    translations: {
+                        en: {
+                            consentModal: {
+                                title: `<img src="/cookie.webp" alt="" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Your privacy matters`,
+                                description:
+                                    "We use cookies to enhance your experience, analyse traffic, and serve personalised content. 'Accept all' to consent per our Cookie and Privacy policies.",
+                                acceptAllBtn: "Accept all",
+                                acceptNecessaryBtn: "Reject",
+                                showPreferencesBtn: "Preferences",
+                            },
+                            preferencesModal: {
+                                title: "Cookie preferences",
+                                acceptAllBtn: "Accept all",
+                                acceptNecessaryBtn: "Reject all",
+                                savePreferencesBtn: "Save preferences",
+                                closeIconLabel: "Close",
+                                sections: [
+                                    {
+                                        title: "Necessary cookies",
+                                        description:
+                                            "These cookies are essential for the website to function.",
+                                    },
+                                    {
+                                        title: "Analytics cookies",
+                                        description:
+                                            "These cookies help us analyse website usage.",
+                                        linkedCategory: "analytics",
+                                    },
+                                ],
+                            },
+                        },
+
+                        nl: {
+                            consentModal: {
+                                title: `<img src="/cookie.webp" alt="" style="width:24px;margin-right:8px;display:inline-block;vertical-align:middle;"> Uw privacy is belangrijk`,
+                                description:
+                                    "Wij gebruiken cookies om uw ervaring te verbeteren, verkeer te analyseren en gepersonaliseerde content te tonen. Klik op 'Alles accepteren' om toestemming te geven volgens ons Cookie- en Privacybeleid.",
+                                acceptAllBtn: "Alles accepteren",
+                                acceptNecessaryBtn: "Weigeren",
+                                showPreferencesBtn: "Instellingen",
+                            },
+                            preferencesModal: {
+                                title: "Cookie instellingen",
+                                acceptAllBtn: "Alles accepteren",
+                                acceptNecessaryBtn: "Alles weigeren",
+                                savePreferencesBtn: "Instellingen opslaan",
+                                closeIconLabel: "Sluiten",
+                                sections: [
+                                    {
+                                        title: "Noodzakelijke cookies",
+                                        description:
+                                            "Deze cookies zijn nodig voor de werking van de website.",
+                                    },
+                                    {
+                                        title: "Analytics cookies",
+                                        description:
+                                            "Deze cookies helpen ons begrijpen hoe bezoekers de website gebruiken.",
+                                        linkedCategory: "analytics",
+                                    },
+                                ],
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Re-check on reload
+            const consent = CookieConsent.getCookie();
+            if (consent?.categories?.includes("analytics")) {
+                loadAnalytics();
             }
         });
 
-        // 🔥 check bij reload (belangrijk!)
-        const consent = CookieConsent.getCookie();
-        if (consent?.categories?.includes("analytics")) {
-            loadAnalytics();
-        }
-
+        return () => {
+            cancelled = true;
+        };
     }, [locale]);
 
     return null;

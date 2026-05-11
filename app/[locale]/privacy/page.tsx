@@ -1,11 +1,30 @@
 import nl from "@/languages/nl.json";
 import en from "@/languages/en.json";
+import type { Metadata } from "next";
+import { localeAlternates, openGraphFor, seoConfig, SITE_URL } from "@/lib/seo";
 
 type Props = {
     params: Promise<{
         locale: string;
     }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale } = await params;
+    const typedLocale = (locale === "en" ? "en" : "nl") as "nl" | "en";
+    const cfg = seoConfig[typedLocale].privacy;
+    const url = `${SITE_URL}/${typedLocale}/privacy`;
+
+    return {
+        title: cfg.title,
+        description: cfg.description,
+        alternates: localeAlternates(typedLocale, {
+            nl: "/nl/privacy",
+            en: "/en/privacy",
+        }),
+        openGraph: openGraphFor(typedLocale, url, cfg.title, cfg.description),
+    };
+}
 
 export default async function PrivacyPage({ params }: Props) {
     const { locale } = await params;
@@ -90,14 +109,14 @@ export default async function PrivacyPage({ params }: Props) {
 
                     <p>
                         {isEN
-                            ? "We use Hotjar to analyse anonymous user behaviour such as clicks, scrolling behaviour and navigation on the website. These insights help us optimise the website."
-                            : "Wij gebruiken Hotjar om anoniem gebruikersgedrag te analyseren, zoals klikken, scrollgedrag en navigatie op de website. Deze inzichten helpen ons om de website te verbeteren."}
+                            ? "We use Contentsquare to analyse anonymous user behaviour such as clicks, scrolling behaviour and navigation on the website. These insights help us optimise the website."
+                            : "Wij gebruiken Contentsquare om anoniem gebruikersgedrag te analyseren, zoals klikken, scrollgedrag en navigatie op de website. Deze inzichten helpen ons om de website te verbeteren."}
                     </p>
 
                     <p>
                         {isEN
-                            ? "Hotjar is only activated after you provide consent via the cookie banner."
-                            : "Hotjar wordt alleen geactiveerd nadat u toestemming heeft gegeven via de cookiebanner."}
+                            ? "Contentsquare is only activated after you provide consent via the cookie banner."
+                            : "Contentsquare wordt alleen geactiveerd nadat u toestemming heeft gegeven via de cookiebanner."}
                     </p>
 
                     <h2>{isEN ? "7. Contact" : "7. Contact"}</h2>

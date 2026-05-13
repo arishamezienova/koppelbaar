@@ -1,11 +1,13 @@
 {
   "hero": {
-    "line1": "We build websites",
-    "line2": "that help you grow",
-    "desc1": "Need a new website or upgrade your current one?",
-    "desc2": "We design and develop modern, custom websites for",
-    "desc3": "companies that want to grow.",
-    "cta": "Start a project?"
+    "eyebrow": "Not your average agency · Hasselt",
+    "line1Static": "Vibe coders ship",
+    "line1Typed": "prototypes.",
+    "line2": "we ship products",
+    "desc1": "Code you can build on,",
+    "desc2": "for years.",
+    "desc3": "",
+    "cta": "Book a call"
   },
 
   "services": {

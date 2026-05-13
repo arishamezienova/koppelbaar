@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Globe } from "lucide-react";
 import Link from "next/link";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 
 type HeaderProps = {
     locale: "nl" | "en";
@@ -12,12 +13,27 @@ export default function Header({ locale }: HeaderProps) {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
+        let rafId = 0;
+
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            // Coalesce multiple scroll events per frame into one state update.
+            if (rafId) return;
+            rafId = requestAnimationFrame(() => {
+                setScrolled(window.scrollY > 50);
+                rafId = 0;
+            });
         };
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        // `passive: true` — promise to never call preventDefault, so the
+        // browser doesn't have to wait for this handler before scrolling.
+        // Without this, every scroll/wheel event blocks paint = lag.
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            if (rafId) cancelAnimationFrame(rafId);
+        };
     }, []);
 
     const textColor = scrolled ? "text-white" : "text-black";
@@ -32,6 +48,15 @@ export default function Header({ locale }: HeaderProps) {
 
                 <Link
                     href={`/${locale}`}
+                    onClick={(e) => {
+                        // Same-page click → smooth scroll to top instead of a
+                        // no-op Next.js navigation.
+                        const path = window.location.pathname.replace(/\/$/, "");
+                        if (path === `/${locale}`) {
+                            e.preventDefault();
+                            smoothScrollTo(0);
+                        }
+                    }}
                     className={`text-xl font-bold ${textColor} hover:opacity-80 transition`}
                 >
                     koppelbaar<span className="text-purple-600">.</span>

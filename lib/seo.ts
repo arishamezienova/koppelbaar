@@ -9,9 +9,9 @@ export const seoConfig = {
     nl: {
         siteName: "Koppelbaar",
         home: {
-            title: "Koppelbaar — Webbureau Hasselt | Websites op maat",
+            title: "Koppelbaar — Webbureau Hasselt | Websites, web apps & AI",
             description:
-                "Webbureau uit Hasselt (Limburg). Wij ontwerpen en ontwikkelen moderne websites, web apps en platformen op maat voor bedrijven die willen groeien.",
+                "Koppelbaar is een onafhankelijk webbureau uit Hasselt. Wij bouwen websites, web apps, platformen en AI-integraties op maat — door senior engineers, klaar voor productie.",
         },
         privacy: {
             title: "Privacybeleid",
@@ -26,9 +26,9 @@ export const seoConfig = {
     en: {
         siteName: "Koppelbaar",
         home: {
-            title: "Koppelbaar — Web agency in Belgium | Custom websites",
+            title: "Koppelbaar — Web agency in Belgium | Websites, web apps & AI",
             description:
-                "Web agency based in Hasselt, Belgium. We design and develop modern, custom websites, web apps and platforms for companies that want to grow.",
+                "Koppelbaar is an independent web studio based in Hasselt, Belgium. We build websites, web apps, platforms and AI integrations — by senior engineers, production-ready.",
         },
         privacy: {
             title: "Privacy Policy",

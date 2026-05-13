@@ -1,11 +1,13 @@
 {
   "hero": {
-    "line1": "Wij bouwen websites",
-    "line2": "die jou vooruit helpen",
-    "desc1": "Nieuwe website nodig of je huidige site vernieuwen?",
-    "desc2": "Wij ontwerpen en ontwikkelen moderne websites",
-    "desc3": "op maat voor bedrijven die willen groeien.",
-    "cta": "Samenwerken?"
+    "eyebrow": "Not your average agency · Hasselt",
+    "line1Static": "Vibe coders",
+    "line1Typed": "prototypen.",
+    "line2": "wij leveren producten",
+    "desc1": "Code waar je over jaren",
+    "desc2": "nog op kan bouwen.",
+    "desc3": "",
+    "cta": "Plan een gesprek"
   },
 
   "services": {

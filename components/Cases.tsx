@@ -35,7 +35,7 @@ export default function Cases({ locale }: CasesProps) {
                                 prefetch={false}
                                 className="group block h-full"
                             >
-                                <div className="overflow-hidden rounded-xl border bg-white transition hover:shadow-lg h-full flex flex-col">
+                                <div className="overflow-hidden rounded-xl border-[0.5px] border-gray-200 bg-white transition hover:shadow-lg h-full flex flex-col">
 
                                     <div className="relative h-56 w-full overflow-hidden">
                                         <Image

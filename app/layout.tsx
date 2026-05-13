@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import dynamic from "next/dynamic";
+import SmoothScroll from "@/components/SmoothScroll";
+import CursorBlob from "@/components/CursorBlob";
 import "./globals.css";
 
 const CookieBanner = dynamic(() => import("@/components/CookieBanner"));
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
         template: "%s | Koppelbaar",
     },
     description:
-        "Webbureau uit Hasselt (Limburg). Wij ontwerpen en ontwikkelen moderne websites, web apps en platformen op maat voor bedrijven die willen groeien.",
+        "Koppelbaar is een onafhankelijk webbureau uit Hasselt. Wij bouwen websites, web apps, platformen en AI-integraties op maat — door senior engineers, klaar voor productie.",
     applicationName: "Koppelbaar",
     authors: [{ name: "Koppelbaar", url: siteUrl }],
     creator: "Koppelbaar",
@@ -116,7 +118,23 @@ export default function RootLayout({
 }) {
     return (
         <html lang="nl">
+        <head>
+            {/* Disable native scroll restoration so refresh and back/forward
+                always land at the top of the page. Must run before paint —
+                inline script in <head> is the standard way to do this. */}
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `try{history.scrollRestoration="manual"}catch(e){}`,
+                }}
+            />
+        </head>
         <body className={`${poppins.className} antialiased bg-white text-black`}>
+
+        {/* Site-wide smooth scrolling (Lenis). Disabled for prefers-reduced-motion. */}
+        <SmoothScroll />
+
+        {/* Desktop-only cursor blob with mix-blend-mode: difference */}
+        <CursorBlob />
 
         {children}
 

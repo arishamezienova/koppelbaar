@@ -22,6 +22,10 @@ export const seoConfig = {
             title: "Bedankt voor je aanvraag",
             description: "We nemen zo snel mogelijk contact met je op.",
         },
+        unsubscribe: {
+            title: "Uitschrijven",
+            description: "Schrijf je uit voor e-mails van Koppelbaar.",
+        },
     },
     en: {
         siteName: "Koppelbaar",
@@ -38,6 +42,10 @@ export const seoConfig = {
         thanks: {
             title: "Thank you for your request",
             description: "We will get back to you as soon as possible.",
+        },
+        unsubscribe: {
+            title: "Unsubscribe",
+            description: "Unsubscribe from Koppelbaar emails.",
         },
     },
 } as const;
